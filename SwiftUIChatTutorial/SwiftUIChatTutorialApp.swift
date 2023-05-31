@@ -11,14 +11,7 @@ import SwiftUI
 struct SwiftUIChatTutorialApp: App {
     var body: some Scene {
         WindowGroup {
-//            LoginView()
-            NavigationView() {
-                VStack(alignment: .leading) {
-                    
-                }.background(Color.red)
-                
-            }
-            
+            MainTabView()
         }
     }
 }
