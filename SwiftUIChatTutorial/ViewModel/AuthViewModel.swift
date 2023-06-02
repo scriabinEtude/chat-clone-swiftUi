@@ -8,9 +8,26 @@
 import Firebase
 
 class AuthViewModel: NSObject, ObservableObject {
+    @Published var didAuthenticateUser = false
+    @Published var userSession: Firebase.User?
+    private var tempCurrentUser: FirebaseAuth.User?
     
-    func login() {
-        
+    static let shared = AuthViewModel()
+    
+    override init() {
+        userSession = Auth.auth().currentUser
+    }
+    
+    func login(withEmail email: String, password: String) {
+        Auth.auth().signIn(withEmail: email, password: password) { result, error in
+            if let error = error {
+                LogUtil.error("Failed to register with error", error: error)
+                return
+            }
+            
+            guard let user = result?.user else { return }
+            self.userSession = user
+        }
     }
     
     func register(withEmail email: String, password: String, fullname: String, username: String) {
@@ -21,6 +38,7 @@ class AuthViewModel: NSObject, ObservableObject {
             }
             
             guard let user = result?.user else { return }
+            self.tempCurrentUser = user
             let data: [String: Any] = [
                 "email": email,
                 "username": username,
@@ -29,17 +47,23 @@ class AuthViewModel: NSObject, ObservableObject {
             ]
             
             Firestore.firestore().collection("users").document(user.uid).setData(data) { _ in
-                print("DEBUG: Successfully updated user info in firestore..")
+                self.didAuthenticateUser = true
             }
             
         }
     }
     
-    func uploadProfileImage() {
-        
+    func uploadProfileImage(_ image: UIImage) {
+        guard let uid = tempCurrentUser?.uid else { return }
+        ImageUploader.uploadImage(image: image) { imageUrl in
+            Firestore.firestore().collection("users").document(uid).updateData(["profileImageUrl": imageUrl]) { _ in
+                print("Success")
+            }
+        }
     }
     
     func signout() {
-        
+        self.userSession = nil
+        try? Auth.auth().signOut()
     }
 }

@@ -17,6 +17,13 @@ struct RegistrationView: View {
     
     var body: some View {
         VStack{
+            
+            NavigationLink(
+                destination: ProfilePhotoSelectorView().navigationBarBackButtonHidden(true),
+                isActive: $viewModel.didAuthenticateUser,
+                label: {}
+            )
+            
             VStack(alignment: .leading, spacing: 12) {
                 HStack { Spacer() }
                 Text("Get started.")

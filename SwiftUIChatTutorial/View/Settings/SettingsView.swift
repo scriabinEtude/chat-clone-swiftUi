@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct SettingsView: View {
+    
     var body: some View {
         ZStack {
             Color(.systemGroupedBackground)
@@ -24,7 +25,7 @@ struct SettingsView: View {
                 }
                 
                 Button(action: {
-                    print("Handle log out here...")
+                    AuthViewModel.shared.signout()
                 }, label: {
                     Text("Log Out")
                         .foregroundColor(.red)
