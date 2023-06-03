@@ -10,12 +10,17 @@ import Firebase
 class AuthViewModel: NSObject, ObservableObject {
     @Published var didAuthenticateUser = false
     @Published var userSession: Firebase.User?
+    @Published var currentUser: User?
     private var tempCurrentUser: FirebaseAuth.User?
     
     static let shared = AuthViewModel()
     
+    public var testUser = User(username: "test", fullname: "test", email: "test", profileImageUrl: "test")
+    
     override init() {
+        super.init()
         userSession = Auth.auth().currentUser
+        fetchUser()
     }
     
     func login(withEmail email: String, password: String) {
@@ -39,6 +44,7 @@ class AuthViewModel: NSObject, ObservableObject {
             
             guard let user = result?.user else { return }
             self.tempCurrentUser = user
+            self.userSession = self.tempCurrentUser
             let data: [String: Any] = [
                 "email": email,
                 "username": username,
@@ -65,5 +71,14 @@ class AuthViewModel: NSObject, ObservableObject {
     func signout() {
         self.userSession = nil
         try? Auth.auth().signOut()
+    }
+    
+    func fetchUser() {
+        guard let uid = userSession?.uid else { return }
+        
+        Firestore.firestore().collection("users").document(uid).getDocument { snapshot, error in
+            guard let user = try? snapshot?.data(as: User.self) else { return }
+            self.currentUser = user
+        }
     }
 }

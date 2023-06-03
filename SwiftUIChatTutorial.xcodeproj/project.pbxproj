@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6246CFE12A2ADA17007D1816 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6246CFE02A2ADA17007D1816 /* User.swift */; };
 		6261DAD22A25B55F009F0A14 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6261DAD12A25B55F009F0A14 /* CustomTextField.swift */; };
 		6261DAEF2A2607A5009F0A14 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6261DAEE2A2607A5009F0A14 /* LaunchScreen.storyboard */; };
 		6261DAF22A26099C009F0A14 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6261DAF12A26099C009F0A14 /* MainTabView.swift */; };
@@ -49,6 +50,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6246CFE02A2ADA17007D1816 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		6261DAD12A25B55F009F0A14 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		6261DAEE2A2607A5009F0A14 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6261DAF12A26099C009F0A14 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
@@ -252,6 +254,7 @@
 			isa = PBXGroup;
 			children = (
 				6261DB1D2A28A2D5009F0A14 /* Message.swift */,
+				6246CFE02A2ADA17007D1816 /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -351,6 +354,7 @@
 				62B0D0FE2A2A047E003FD049 /* LogUtil.swift in Sources */,
 				628CAED32A208DA700820578 /* LoginView.swift in Sources */,
 				6261DB0A2A2768F6009F0A14 /* UserStatus.swift in Sources */,
+				6246CFE12A2ADA17007D1816 /* User.swift in Sources */,
 				6261DAF92A260C72009F0A14 /* SettingsView.swift in Sources */,
 				6261DB002A265C5A009F0A14 /* SettingsHeaderView.swift in Sources */,
 				6261DB0E2A27E637009F0A14 /* ConversationCell.swift in Sources */,

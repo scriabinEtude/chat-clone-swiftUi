@@ -9,6 +9,12 @@ import SwiftUI
 
 
 struct SettingsHeaderView: View {
+    private let user: User
+    
+    init(user: User) {
+        self.user = user
+    }
+    
     var body: some View {
         HStack {
             Image("venom-7")
@@ -18,7 +24,7 @@ struct SettingsHeaderView: View {
                 .padding(.leading)
             
             VStack(alignment: .leading, spacing: 4) {
-                Text("Eddie Brock")
+                Text(user.username)
                     .font(.system(size: 18))
                     .foregroundColor(.black)
                 Text("Available")
@@ -35,6 +41,6 @@ struct SettingsHeaderView: View {
 
 struct SettingsHeaderView_Previews: PreviewProvider {
     static var previews: some View {
-        SettingsHeaderView()
+        SettingsHeaderView(user: AuthViewModel.shared.testUser)
     }
 }
