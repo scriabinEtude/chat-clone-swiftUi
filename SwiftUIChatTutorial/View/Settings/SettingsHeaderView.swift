@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-
+import Kingfisher
 
 struct SettingsHeaderView: View {
     private let user: User
@@ -17,7 +17,7 @@ struct SettingsHeaderView: View {
     
     var body: some View {
         HStack {
-            Image("venom-7")
+            KFImage(URL(string: user.profileImageUrl))
                 .resizable()
                 .frame(width: 64, height: 64)
                 .clipShape(Circle())

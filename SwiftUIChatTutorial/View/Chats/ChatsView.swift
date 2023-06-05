@@ -10,13 +10,19 @@ import SwiftUI
 struct ChatsView: View {
     @State private var messageText = ""
     @ObservedObject var viewModel = ChatViewModel()
+    private let user: User
+    
+    init(user: User) {
+        self.user = user
+    }
+    
     var body: some View {
         VStack {
             // messages
             ScrollView {
                 VStack(alignment: .leading, spacing: 12) {
                     ForEach(viewModel.messages) { message in
-                        MessageView(isFromCurrentUser: message.isFromCurrentUser, messageText: message.messageText)
+//                        MessageView(isFromCurrentUser: message.isFromCurrentUser, messageText: message.messageText)
                     }
                 }
             }
@@ -37,6 +43,6 @@ struct ChatsView: View {
 
 struct ChatsView_Previews: PreviewProvider {
     static var previews: some View {
-        ChatsView()
+        ChatsView(user: AuthViewModel.shared.testUser)
     }
 }

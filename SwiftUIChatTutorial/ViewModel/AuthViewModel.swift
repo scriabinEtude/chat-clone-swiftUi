@@ -15,7 +15,7 @@ class AuthViewModel: NSObject, ObservableObject {
     
     static let shared = AuthViewModel()
     
-    public var testUser = User(username: "test", fullname: "test", email: "test", profileImageUrl: "test")
+    public var testUser = User(username: "test", fullname: "test", email: "test", profileImageUrl: "https://item.kakaocdn.net/do/fd0050f12764b403e7863c2c03cd4d2d7154249a3890514a43687a85e6b6cc82")
     
     override init() {
         super.init()
@@ -30,8 +30,8 @@ class AuthViewModel: NSObject, ObservableObject {
                 return
             }
             
-            guard let user = result?.user else { return }
-            self.userSession = user
+            self.userSession = result?.user
+            self.fetchUser()
         }
     }
     
@@ -52,7 +52,7 @@ class AuthViewModel: NSObject, ObservableObject {
                 "uid": user.uid
             ]
             
-            Firestore.firestore().collection("users").document(user.uid).setData(data) { _ in
+            COLLECTION_USER.document(user.uid).setData(data) { _ in
                 self.didAuthenticateUser = true
             }
             
@@ -62,7 +62,7 @@ class AuthViewModel: NSObject, ObservableObject {
     func uploadProfileImage(_ image: UIImage) {
         guard let uid = tempCurrentUser?.uid else { return }
         ImageUploader.uploadImage(image: image) { imageUrl in
-            Firestore.firestore().collection("users").document(uid).updateData(["profileImageUrl": imageUrl]) { _ in
+            COLLECTION_USER.document(uid).updateData(["profileImageUrl": imageUrl]) { _ in
                 print("Success")
             }
         }
@@ -76,7 +76,7 @@ class AuthViewModel: NSObject, ObservableObject {
     func fetchUser() {
         guard let uid = userSession?.uid else { return }
         
-        Firestore.firestore().collection("users").document(uid).getDocument { snapshot, error in
+        COLLECTION_USER.document(uid).getDocument { snapshot, error in
             guard let user = try? snapshot?.data(as: User.self) else { return }
             self.currentUser = user
         }
