@@ -63,6 +63,7 @@ class AuthViewModel: NSObject, ObservableObject {
         ImageUploader.uploadImage(image: image) { imageUrl in
             COLLECTION_USER.document(uid).updateData(["profileImageUrl": imageUrl]) { _ in
                 self.userSession = self.tempCurrentUser
+                self.fetchUser()
             }
         }
     }
