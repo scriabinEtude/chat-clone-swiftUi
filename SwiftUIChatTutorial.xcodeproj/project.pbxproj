@@ -41,6 +41,7 @@
 		6261DB1E2A28A2D5009F0A14 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6261DB1D2A28A2D5009F0A14 /* Message.swift */; };
 		6261DB202A28A316009F0A14 /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6261DB1F2A28A316009F0A14 /* ChatViewModel.swift */; };
 		6261DB222A28AD6C009F0A14 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6261DB212A28AD6C009F0A14 /* GoogleService-Info.plist */; };
+		6286EA182A2DB9BE006F549D /* MessageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6286EA172A2DB9BE006F549D /* MessageViewModel.swift */; };
 		628CAEBE2A208C7100820578 /* SwiftUIChatTutorialApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 628CAEBD2A208C7100820578 /* SwiftUIChatTutorialApp.swift */; };
 		628CAEC22A208C7200820578 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 628CAEC12A208C7200820578 /* Assets.xcassets */; };
 		628CAEC52A208C7200820578 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 628CAEC42A208C7200820578 /* Preview Assets.xcassets */; };
@@ -82,6 +83,7 @@
 		6261DB1D2A28A2D5009F0A14 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		6261DB1F2A28A316009F0A14 /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
 		6261DB212A28AD6C009F0A14 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "SwiftUIChatTutorial/GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		6286EA172A2DB9BE006F549D /* MessageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewModel.swift; sourceTree = "<group>"; };
 		628CAEBA2A208C7100820578 /* SwiftUIChatTutorial.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftUIChatTutorial.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		628CAEBD2A208C7100820578 /* SwiftUIChatTutorialApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIChatTutorialApp.swift; sourceTree = "<group>"; };
 		628CAEC12A208C7200820578 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -251,6 +253,7 @@
 				6261DB1F2A28A316009F0A14 /* ChatViewModel.swift */,
 				62B0D0EB2A28BA80003FD049 /* AuthViewModel.swift */,
 				6246CFF12A2AE7AF007D1816 /* NewMessageViewModel.swift */,
+				6286EA172A2DB9BE006F549D /* MessageViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -403,6 +406,7 @@
 				6261DB142A28239C009F0A14 /* SearchBar.swift in Sources */,
 				6261DB1A2A289798009F0A14 /* MessageView.swift in Sources */,
 				6261DB062A275CFA009F0A14 /* EditProfileView.swift in Sources */,
+				6286EA182A2DB9BE006F549D /* MessageViewModel.swift in Sources */,
 				6261DB022A265D3F009F0A14 /* SettingsCell.swift in Sources */,
 				62B0D0F02A29EEEE003FD049 /* ImageUploader.swift in Sources */,
 			);
