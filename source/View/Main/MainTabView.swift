@@ -2,7 +2,7 @@
 //  MainTabView.swift
 //  SwiftUIChatTutorial
 //
-//  Created by escher on 2023/05/30.
+//  Created by Stephen Dowless on 5/24/21.
 //
 
 import SwiftUI
@@ -12,7 +12,7 @@ struct MainTabView: View {
     @EnvironmentObject var viewModel: AuthViewModel
     
     var body: some View {
-        if let user = AuthViewModel.shared.currentUser {
+        if let user = viewModel.currentUser {
             NavigationView {
                 TabView(selection: $selectedIndex) {
                     ConversationsView()
@@ -21,31 +21,28 @@ struct MainTabView: View {
                         }
                         .tabItem { Image(systemName: "bubble.left") }
                         .tag(0)
+                    
                     ChannelsView()
                         .onTapGesture {
                             selectedIndex = 1
                         }
                         .tabItem { Image(systemName: "bubble.left.and.bubble.right") }
                         .tag(1)
+
+                    
                     SettingsView(user: user)
                         .onTapGesture {
                             selectedIndex = 2
                         }
                         .tabItem { Image(systemName: "gear") }
                         .tag(2)
+
                 }
                 .navigationTitle(tabTitle)
+                
             }
         } else {
-            Button(action: {
-                AuthViewModel.shared.signout()
-            }, label: {
-                Text("Log Out")
-                    .foregroundColor(.red)
-                    .font(.system(size: 16, weight: .semibold))
-                    .frame(width: UIScreen.main.bounds.width, height: 50)
-                    .background(Color.white)
-            })
+            // show failed to load or empty state view
         }
     }
     

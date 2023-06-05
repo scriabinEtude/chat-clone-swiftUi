@@ -44,7 +44,6 @@ class AuthViewModel: NSObject, ObservableObject {
             
             guard let user = result?.user else { return }
             self.tempCurrentUser = user
-            self.userSession = self.tempCurrentUser
             let data: [String: Any] = [
                 "email": email,
                 "username": username,
@@ -63,13 +62,15 @@ class AuthViewModel: NSObject, ObservableObject {
         guard let uid = tempCurrentUser?.uid else { return }
         ImageUploader.uploadImage(image: image) { imageUrl in
             COLLECTION_USER.document(uid).updateData(["profileImageUrl": imageUrl]) { _ in
-                print("Success")
+                self.userSession = self.tempCurrentUser
             }
         }
     }
     
     func signout() {
         self.userSession = nil
+        self.didAuthenticateUser = false
+        self.tempCurrentUser = nil
         try? Auth.auth().signOut()
     }
     

@@ -7,8 +7,12 @@
 
 import Foundation
 
-struct MessageViewModel {
+struct MessageViewModel{
     let message: Message
+    
+    init(_ message: Message) {
+        self.message = message
+    }
     
     var currentUid: String {
         return AuthViewModel.shared.userSession?.uid ?? ""
@@ -22,4 +26,5 @@ struct MessageViewModel {
         guard let profileImageUrl = message.user?.profileImageUrl else { return nil }
         return URL(string: profileImageUrl)
     }
+    
 }

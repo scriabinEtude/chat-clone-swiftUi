@@ -1,13 +1,13 @@
 //
-//  ChatsView.swift
+//  ChatView.swift
 //  SwiftUIChatTutorial
 //
-//  Created by escher on 2023/05/30.
+//  Created by Stephen Dowless on 5/24/21.
 //
 
 import SwiftUI
 
-struct ChatsView: View {
+struct ChatView: View {
     @State private var messageText = ""
     @ObservedObject var viewModel: ChatViewModel
     private let user: User
@@ -28,10 +28,9 @@ struct ChatsView: View {
                 }
             }
             
-            // input view
             CustomInputView(text: $messageText, action: sendMessage)
         }
-        .navigationTitle("venom")
+        .navigationTitle(user.username)
         .navigationBarTitleDisplayMode(.inline)
         .padding(.vertical)
     }
@@ -39,11 +38,5 @@ struct ChatsView: View {
     func sendMessage() {
         viewModel.sendMessage(messageText)
         messageText = ""
-    }
-}
-
-struct ChatsView_Previews: PreviewProvider {
-    static var previews: some View {
-        ChatsView(user: AuthViewModel.shared.testUser)
     }
 }

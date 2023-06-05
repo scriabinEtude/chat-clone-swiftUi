@@ -2,7 +2,7 @@
 //  ConversationsView.swift
 //  SwiftUIChatTutorial
 //
-//  Created by escher on 2023/05/31.
+//  Created by Stephen Dowless on 5/24/21.
 //
 
 import SwiftUI
@@ -18,24 +18,22 @@ struct ConversationsView: View {
             
             if let user = selectedUser {
                 NavigationLink(
-                    destination: ChatsView(user: user),
+                    destination: ChatView(user: user),
                     isActive: $showChatView,
-                    label: {}
-                )
+                    label: { })
             }
             
             // chats
             ScrollView {
                 VStack(alignment: .leading) {
                     ForEach(viewModel.recentMessages) { message in
-                        ConversationCell(
-                            viewModel: ConversationCelViewModel(message)
-                        )
+                        ConversationCell(viewModel: ConversationCellViewModel(message))
                     }
                 }
             }
             
-            // floating button
+            //floating button
+            
             Button(action: {
                 showNewMessageView.toggle()
             }, label: {
@@ -53,7 +51,7 @@ struct ConversationsView: View {
                 NewMessageView(showChatView: $showChatView, user: $selectedUser)
             })
         }
-        .onAppear{
+        .onAppear {
             viewModel.fetchRecentMessages()
         }
     }

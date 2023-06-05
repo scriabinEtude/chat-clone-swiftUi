@@ -42,6 +42,8 @@
 		6261DB202A28A316009F0A14 /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6261DB1F2A28A316009F0A14 /* ChatViewModel.swift */; };
 		6261DB222A28AD6C009F0A14 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6261DB212A28AD6C009F0A14 /* GoogleService-Info.plist */; };
 		6286EA182A2DB9BE006F549D /* MessageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6286EA172A2DB9BE006F549D /* MessageViewModel.swift */; };
+		6286EA1A2A2DC789006F549D /* ConversationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6286EA192A2DC789006F549D /* ConversationViewModel.swift */; };
+		6286EA1C2A2DD9D4006F549D /* ConversationCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6286EA1B2A2DD9D4006F549D /* ConversationCellViewModel.swift */; };
 		628CAEBE2A208C7100820578 /* SwiftUIChatTutorialApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 628CAEBD2A208C7100820578 /* SwiftUIChatTutorialApp.swift */; };
 		628CAEC22A208C7200820578 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 628CAEC12A208C7200820578 /* Assets.xcassets */; };
 		628CAEC52A208C7200820578 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 628CAEC42A208C7200820578 /* Preview Assets.xcassets */; };
@@ -84,6 +86,8 @@
 		6261DB1F2A28A316009F0A14 /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
 		6261DB212A28AD6C009F0A14 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "SwiftUIChatTutorial/GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		6286EA172A2DB9BE006F549D /* MessageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewModel.swift; sourceTree = "<group>"; };
+		6286EA192A2DC789006F549D /* ConversationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationViewModel.swift; sourceTree = "<group>"; };
+		6286EA1B2A2DD9D4006F549D /* ConversationCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationCellViewModel.swift; sourceTree = "<group>"; };
 		628CAEBA2A208C7100820578 /* SwiftUIChatTutorial.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftUIChatTutorial.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		628CAEBD2A208C7100820578 /* SwiftUIChatTutorialApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIChatTutorialApp.swift; sourceTree = "<group>"; };
 		628CAEC12A208C7200820578 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -254,6 +258,8 @@
 				62B0D0EB2A28BA80003FD049 /* AuthViewModel.swift */,
 				6246CFF12A2AE7AF007D1816 /* NewMessageViewModel.swift */,
 				6286EA172A2DB9BE006F549D /* MessageViewModel.swift */,
+				6286EA192A2DC789006F549D /* ConversationViewModel.swift */,
+				6286EA1B2A2DD9D4006F549D /* ConversationCellViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -377,6 +383,7 @@
 				6261DB202A28A316009F0A14 /* ChatViewModel.swift in Sources */,
 				6246CFF42A2AE80F007D1816 /* Constants.swift in Sources */,
 				62B0D0FE2A2A047E003FD049 /* LogUtil.swift in Sources */,
+				6286EA1C2A2DD9D4006F549D /* ConversationCellViewModel.swift in Sources */,
 				628CAED32A208DA700820578 /* LoginView.swift in Sources */,
 				6261DB0A2A2768F6009F0A14 /* UserStatus.swift in Sources */,
 				6246CFE12A2ADA17007D1816 /* User.swift in Sources */,
@@ -399,6 +406,7 @@
 				6261DB1C2A289FD6009F0A14 /* CustomInputView.swift in Sources */,
 				62B0D0EC2A28BA80003FD049 /* AuthViewModel.swift in Sources */,
 				6261DAFB2A260C80009F0A14 /* ChatsView.swift in Sources */,
+				6286EA1A2A2DC789006F549D /* ConversationViewModel.swift in Sources */,
 				6261DB182A283428009F0A14 /* ChatBubble.swift in Sources */,
 				6261DAD22A25B55F009F0A14 /* CustomTextField.swift in Sources */,
 				6261DAF22A26099C009F0A14 /* MainTabView.swift in Sources */,

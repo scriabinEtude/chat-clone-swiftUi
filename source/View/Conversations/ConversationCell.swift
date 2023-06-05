@@ -2,21 +2,21 @@
 //  UserCell.swift
 //  SwiftUIChatTutorial
 //
-//  Created by escher on 2023/06/01.
+//  Created by Stephen Dowless on 5/25/21.
 //
 
 import SwiftUI
 import Kingfisher
 
 struct ConversationCell: View {
-    @ObservedObject var viewModel: ConversationCelViewModel
+    @ObservedObject var viewModel: ConversationCellViewModel
     
     var body: some View {
         if let user = viewModel.message.user {
-            NavigationLink(destination: ChatsView(user: user)) {
+            NavigationLink(destination: ChatView(user: user)) {
                 VStack {
                     HStack {
-                        // image
+                        
                         KFImage(viewModel.chatPartnerProfileImageUrl)
                             .resizable()
                             .scaledToFill()
@@ -27,17 +27,19 @@ struct ConversationCell: View {
                         VStack(alignment: .leading, spacing: 4) {
                             Text(viewModel.fullname)
                                 .font(.system(size: 14, weight: .semibold))
+                            
                             Text(viewModel.message.text)
                                 .font(.system(size: 15))
                         }.foregroundColor(.black)
+                        
                         Spacer()
+                        
                     }
                     .padding(.horizontal)
                     
                     Divider()
                 }
                 .padding(.top)
-
             }
         }
     }

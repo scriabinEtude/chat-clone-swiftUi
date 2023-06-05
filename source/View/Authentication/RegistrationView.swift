@@ -2,7 +2,7 @@
 //  RegistrationView.swift
 //  SwiftUIChatTutorial
 //
-//  Created by escher on 2023/05/26.
+//  Created by Stephen Dowless on 5/24/21.
 //
 
 import SwiftUI
@@ -16,54 +16,53 @@ struct RegistrationView: View {
     @EnvironmentObject var viewModel: AuthViewModel
     
     var body: some View {
-        VStack{
+        VStack {
             
             NavigationLink(
-                destination: ProfilePhotoSelectorView().navigationBarBackButtonHidden(true),
+                destination: ProfilePhotoSelectorView(),
                 isActive: $viewModel.didAuthenticateUser,
-                label: {}
-            )
+                label: { })
             
             VStack(alignment: .leading, spacing: 12) {
                 HStack { Spacer() }
+                
                 Text("Get started.")
                     .font(.largeTitle)
                     .bold()
+                
                 Text("Create your account.")
                     .font(.largeTitle)
                     .bold()
                     .foregroundColor(.blue)
-                VStack(spacing: 32) {
-                    CustomTextField(
-                        imageName: "envelope",
-                        placeholderText: "email",
-                        isSecureField: false,
-                        text: $email
-                    )
-                    CustomTextField(
-                        imageName: "person",
-                        placeholderText: "Username",
-                        isSecureField: false,
-                        text: $username
-                    )
-                    CustomTextField(
-                        imageName: "person",
-                        placeholderText: "Full Name",
-                        isSecureField: false,
-                        text: $fullname
-                    )
-                    CustomTextField(
-                        imageName: "lock",
-                        placeholderText: "Password",
-                        isSecureField: true,
-                        text: $password
-                    )
+    
+                VStack(spacing: 40) {
+                    CustomTextField(imageName: "envelope",
+                                    placeholderText: "Email",
+                                    isSecureField: false,
+                                    text: $email)
+                    
+                    CustomTextField(imageName: "person",
+                                    placeholderText: "Username",
+                                    isSecureField: false,
+                                    text: $username)
+                    
+                    CustomTextField(imageName: "person",
+                                    placeholderText: "Full name",
+                                    isSecureField: false,
+                                    text: $fullname)
+                    
+                    CustomTextField(imageName: "lock",
+                                    placeholderText: "Password",
+                                    isSecureField: true,
+                                    text: $password)
                 }
                 .padding([.top, .horizontal], 32)
             }
             .padding(.leading)
+            
             Button(action: {
-                viewModel.register(withEmail: email, password: password, fullname: fullname, username: username)
+                viewModel.register(withEmail: email, password: password,
+                                   fullname: fullname, username: username)
             }, label: {
                 Text("Sign Up")
                     .font(.headline)
@@ -75,17 +74,20 @@ struct RegistrationView: View {
             })
             .padding(.top, 24)
             .shadow(color: .gray, radius: 10, x: 0.0, y: 0.0)
+            
             Spacer()
-            Button(action: {
-                mode.wrappedValue.dismiss()
-            }, label: {
+            
+            Button(action: { mode.wrappedValue.dismiss() }, label: {
                 HStack {
                     Text("Already have an account?")
                         .font(.system(size: 14))
+                    
                     Text("Sign In")
                         .font(.system(size: 14, weight: .semibold))
+                    
                 }
             })
+            .padding(.bottom, 32)
         }
     }
 }
